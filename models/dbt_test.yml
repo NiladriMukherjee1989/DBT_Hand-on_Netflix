@@ -1,0 +1,23 @@
+models:
+    - name: src_dim_movies
+      description: "This is a test model for Movie dimension table "
+      columns:
+        - name: MOVIE_ID
+          description: "The unique identifier for each record"
+          data_tests:
+             - unique
+             - not_null
+        - name: movie_title
+          description: "The name associated with the record"
+          data_tests:
+             - not_null
+             
+    - name: src_ratings
+      description: "This is a test model for Ratings fact table "
+      columns:
+        - name: rating
+          description: "The rating should be between 1 to 5"
+          data_tests:
+             - accepted_values:
+                values: [1, 2, 3, 4, 5]
+                quote: false      

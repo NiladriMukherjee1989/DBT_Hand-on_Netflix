@@ -1,0 +1,9 @@
+snapshots:
+  - name: customers_snapshot
+    relation: source('RAW', 'SNAPSHOT_CUSTOMERS_RAW')
+    config:
+        target_database: netflix
+        target_schema: snapshots
+        strategy: timestamp
+        updated_at: updated_at
+        unique_key: customer_id
